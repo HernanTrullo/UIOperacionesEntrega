@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class AppManager : MonoBehaviour
 {
     [SerializeField] private Button btnProductPoint;
-    [SerializeField] private Button btnProductCross;
     [SerializeField] private Button btnCuaternion;
     [SerializeField] private Button btnRotateVector;
 
@@ -17,7 +16,6 @@ public class AppManager : MonoBehaviour
         btnCuaternion.onClick.AddListener(()=>LoadScene("Cuaternion"));
         btnRotateVector.onClick.AddListener(()=>LoadScene("RotateVector"));
         btnProductPoint.onClick.AddListener(()=>LoadScene("ProductoPunto"));
-        btnProductCross.onClick.AddListener(()=>LoadScene("ProductoCruz"));
     }
 
     // Update is called once per frame

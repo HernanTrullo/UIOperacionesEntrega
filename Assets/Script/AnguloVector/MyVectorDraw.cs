@@ -14,6 +14,8 @@ public class MyVectorDraw : MonoBehaviour
     private Vector3 vectorReference;
     private Vector3 ziseVectorInit;
 
+    private bool isOnClicked = false;
+    private Vector3 offset;
 
     void Start()
     {
@@ -30,6 +32,20 @@ public class MyVectorDraw : MonoBehaviour
         transform.localScale = ziseVectorInit + new Vector3(0.1f, 0.1f, 0.1f);
     }
     private void OnMouseExit() {
-        transform.localScale = ziseVectorInit;    
+        transform.localScale = ziseVectorInit;  
+    }
+    private void OnMouseDown() {
+        offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        isOnClicked = true;
+    }
+    private void OnMouseUp() {
+        isOnClicked = false;    
+    }
+    private void OnMouseOver() {
+        if (isOnClicked){
+            Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
+            transform.position = new Vector3(cursorPosition.x, cursorPosition.y, transform.position.z);
+            
+        }
     }
 }
