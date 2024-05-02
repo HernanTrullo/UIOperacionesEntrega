@@ -24,7 +24,6 @@ public class RotateVectorManager : MonoBehaviour
     private Vector3 ejeRerencia;
 
     private float angleVector = 0;
-    private float angleVectorPast = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,10 +49,8 @@ public class RotateVectorManager : MonoBehaviour
     }
     void rotate_vector(float args){
         angleVector = mySlider.value;
-        vector1_ = Operaciones.RotateVector(angleVector-angleVectorPast,vector1_-vectorRef_);
+        vector1_ = Operaciones.RotateVector(angleVector,ejeRerencia-vectorRef_);
         vector1.transform.position = vector1_ + vectorRef_;
-
-        angleVectorPast = angleVector;
     }
     void resetValue(){
         vector1.transform.position = new Vector3(5,1,0);

@@ -9,6 +9,7 @@ public class AppManager : MonoBehaviour
     [SerializeField] private Button btnProductPoint;
     [SerializeField] private Button btnCuaternion;
     [SerializeField] private Button btnRotateVector;
+    [SerializeField] private Button btnExit;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,9 @@ public class AppManager : MonoBehaviour
         btnCuaternion.onClick.AddListener(()=>LoadScene("Cuaternion"));
         btnRotateVector.onClick.AddListener(()=>LoadScene("RotateVector"));
         btnProductPoint.onClick.AddListener(()=>LoadScene("ProductoPunto"));
+        btnExit.onClick.AddListener(()=>{
+            Application.Quit();
+            });
     }
 
     // Update is called once per frame
